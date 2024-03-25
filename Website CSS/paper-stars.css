@@ -1,0 +1,52 @@
+body {
+    background-color: #e2ebe5;
+    font-family: "Exo 2", sans-serif;
+    color:#0a070c;
+    margin: 0px;
+}
+
+.exo-2-font {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400px;
+  font-style: normal;
+}
+
+hr {
+    border: 1px solid rgb(59, 42, 59);
+}
+
+h1{
+    font-size:30px; 
+    color:#0a070c; 
+    text-align: center;
+}
+
+p{
+    text-align:center;
+}
+
+
+#div1 {
+    max-width: 80%;
+    margin: 0 auto;
+
+    p {
+        color: #0a070c;
+        font-size: 20px;
+        text-align: left;
+    }
+}
+
+
+img{
+    max-width: 50%; 
+    display: block;
+    margin: 0 auto; 
+}  
+
+
+dd{
+    font-size:15px;
+}
+
