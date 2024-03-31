@@ -10,7 +10,7 @@ html, body {
     background-color: #f7f9fc;
     color:#172d46;
     font-family: "Anta", sans-serif;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .container {
