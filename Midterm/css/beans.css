@@ -107,7 +107,8 @@ html, body {
 .row {
     display: flex;
     flex-direction: row;
-    gap: 10px
+    gap: 10px;
+    width: 90%;
 }
 
 .item2 h1 {
@@ -130,7 +131,7 @@ html, body {
     border-radius: 50px;
     padding: 10px;
     background-color: #FFD892; 
-    width: 8%;
+    width: 70px;
     font-weight: 100;
     margin-top: 25px;
 }
@@ -140,7 +141,7 @@ html, body {
     border-radius: 50px;
     padding: 10px;
     background-color: #ffc354; 
-    width: 8%;
+    width: 70px;
     font-weight: 100;
     margin-top: 25px;
 }
@@ -151,6 +152,7 @@ html, body {
 
 .idk{
     display: none;
+    width: 90%;
 }
 
 .item2 h3 {
@@ -183,7 +185,7 @@ html, body {
 
 .coffee-beans{
     background-color: #cadcf7;
-    width: 90%;
+    width: 85%;
     padding: 10px;
     border-radius: 30px;
 }
