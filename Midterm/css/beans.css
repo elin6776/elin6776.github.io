@@ -10,7 +10,8 @@ html, body {
     background-color: #f7f9fc;
     color:#172d46;
     font-family: "Anta", sans-serif;
-    overflow: auto;
+    overflow: hidden;
+    
 }
 
 .container {
@@ -257,8 +258,6 @@ html, body {
         /* grid-template-rows: repeat(6, 1fr); */
         height: 100vh;
         width: 100vw; 
-        overflow: hidden;
-    
     }
     
     .hamburger {
@@ -300,7 +299,6 @@ html, body {
         height: auto;
         position: absolute;
         left: 29%; 
-        top:0%
     }
 
     .line {
