@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+body {
+    background-color: #f7f5f9;
+    font-family: "Exo 2", sans-serif;
+    text-align: center;
+    margin: 0px;
+}
+
+.exo-2-font {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400px;
+    font-style: normal;
+  }
+
+hr {
+    border: 1px solid rgb(59, 42, 59);
+}
+
+h1{
+    font-size: 30px;
+    padding-top: 15px;
+    margin: 0px;
+}
+
+.grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(18, 1fr);
+    height: 100vh;
+    width: 100vw; 
+}
+
+.nav-container {
+    grid-column: 1/19;
+    grid-row: 1/3;
+}
+
+.content-container {
+    display: inline-flex; 
+    align-items: center;  
+    justify-content: center; 
+    text-align: left;
+    grid-column: 2/18;
+    grid-row: 4/17;
+}
+
+#mobileNav {
+    display: block;
+    margin: 2%
+}
+
+.mobileNavBar {
+    position: relative;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+    
+#siteName {
+    position: relative;
+    bottom:8px;
+    font-size: 3rem;
+    font-family: 'DynaPuff', sans-serif;
+}
+
+#hamburgerBtn {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 32px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#theLinks {
+    background-color: #ffffff;
+    text-align: center;
+    display:none;
+    position:absolute;
+    right: 2%; 
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 7px;
+
+    hr{
+        max-width: 70%;
+    }
+}
+
+#theLinks a {
+    display: block;
+    text-decoration: none;
+    color:#0a070c;
+}
+
+form {
+    background-color: #84b898;
+    width: 55%;
+    margin: auto;
+    text-align: center;
+    border-radius: 8px;
+
+    hr {
+        border: 1px solid black;
+        width: 75%;
+    }
+}
+
+.row {
+    flex-direction: row;
+}
+
+.checkbox-container {
+    display: inline-block;
+    margin-right: 30px;
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+.inputFields {
+    display: block;
+    margin: auto;
+    border-radius: 8px;
+    border: solid transparent;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 65%; 
+    height: 40px;
+    font-size: 16px;
+}
+
+textarea {
+    width: 65%; 
+    height: 200px;
+    font-size: 16px;
+}
+
+.checkbox-custom {
+    transform: scale(1.5);
+}
+
+button[type="submit"] {
+    background-color: #b9cba3;
+    font-family: "Exo 2", sans-serif;
+    border-radius: 8px;
+    width: 150px;
+    height: 50px; 
+    font-size: 18px; 
+}
+
+.checkbox-custom {
+    transform: scale(1.5);
+}
