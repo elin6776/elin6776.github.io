@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+
+<html lang = "en-US"> 
+    <head>
+        <link rel="stylesheet" type="text/css" href="Website CSS/map.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+    <body>
+        <div class="grid-container">
+            <script>
+                for(let i=0; i<225; i++) {
+                    document.write('<div class="grid-item" onmouseover="change(this)"></div>');
+                }
+            </script>
+        </div>
+    </body>
+</html>
+
+<script>
+    function change(coloredCell) {
+        if (coloredCell.style.background == "blue"){
+            coloredCell.style.background = "yellow";
+        }
+        else{
+            coloredCell.style.background = "blue";
+        }
+    }
+</script>
