@@ -1,0 +1,18 @@
+body {
+    background-color: #e2ebe5;
+    font-family: "Exo 2", sans-serif;
+    color:#0a070c;
+    margin: 0px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr); 
+    height: 100vh;
+    width: 100vw;
+}
+.grid-item {
+    background-color: yellow;
+    border: transparent;
+}
