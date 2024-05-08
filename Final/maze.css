@@ -12,7 +12,24 @@ body, html {
     font-family: "Sedan SC", serif;
     font-weight: 400;
     font-style: normal;
-  }  
+}  
+
+img {
+    height: 200px;
+    position: absolute;
+    top: 5%;
+    left: 8%;
+}
+
+p {
+    height: 200px;
+    position: absolute;
+    top: 5%;
+    left: 7%;
+    margin-top: 180px;
+    font-size: 20px;
+    font-family: "Sedan SC", serif;
+}
 
 #grid-container {
     display: grid;

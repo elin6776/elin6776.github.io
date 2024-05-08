@@ -101,6 +101,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     result = "Slow Escape";
                 }
                 resultElement.textContent = result;
+                resultElement.style.fontSize = "35px";
+                resultElement.style.color = "rgb(255, 140, 0)";
             }
         }
     });
@@ -110,6 +112,8 @@ document.addEventListener("DOMContentLoaded", function() {
     resetButton.addEventListener("click", function() {
         stopTimer();
         elapsedTime = 0;
+        resultElement.style.fontSize = "40px";
+        resultElement.style.color = "black";
         timerElement.textContent = "00:00";
         resultElement.textContent = "Result";
         gameOver = false;
