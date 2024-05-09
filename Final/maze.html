@@ -11,16 +11,26 @@
     <script src="maze.js"></script>
 </head>
 <body>
-    <img src="arrow_keys.png">
-    <p> Use arrow keys to move</p>
-    <div id="grid-container"></div>
-    <div id="container">
+    <div id="page-grid">
+        <button id="hamburger">&#9776;</button>
+        <div id="dropdown-content" class="dropdown-content">
+            <img src="info.png">
+            <p>Get to the yellow dot <br>as fast as possible <br> and avoid the walls</p>
+            <br><hr><br><br>
+            <button id="easy">Easy</button>
+            <button id="normal">Normal</button>
+            <button id="hard">Hard</button>
+        </div>
+        <div id ="smokescreen">Press an arrow key</div>
+        <div id="grid-container"></div>
+        <img src="arrow_keys.png">
+        <p> Use arrow keys to move</p>
         <div id="timer">00:00</div>
         <br>
-        <div id="result">Result</div>
+        <div id="result"></div>
         <br>
         <button id="reset">Reset</button>
-        <br><br>
+        <br>
         <a href="../index.html">Return</a>
     </div>
 </body>

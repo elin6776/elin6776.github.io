@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const timerElement = document.getElementById("timer");
     const resultElement = document.getElementById("result");
     const gridSize = 10;
-    const numWalls = 15;
+    let numWalls = 15;
     let timerInterval;
     let elapsedTime = 0;
     let timerRunning = false;
@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (gridContainer.children[new_position].classList.contains("exit")) {
                 stopTimer();
+                gridContainer.children[new_position].style.backgroundColor = 'orange';
                 gameOver = true;
                 if (elapsedTime <= 2) {
                     result = "Fast Escape";
@@ -101,25 +102,75 @@ document.addEventListener("DOMContentLoaded", function() {
                     result = "Slow Escape";
                 }
                 resultElement.textContent = result;
-                resultElement.style.fontSize = "35px";
-                resultElement.style.color = "rgb(255, 140, 0)";
             }
+        }
+        if(numWalls == 25){
+            document.getElementById("smokescreen").style.visibility = "hidden";
         }
     });
 
+    document.getElementById("hamburger").addEventListener("click", function() {
+        var dropdownContent = document.getElementById("dropdown-content");
+        if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+        } else {
+            dropdownContent.style.display = "block";
+        }
+    });
+    
     // Reset button
     const resetButton = document.getElementById("reset");
     resetButton.addEventListener("click", function() {
+        if(numWalls == 25){
+            document.getElementById("smokescreen").style.visibility = "visible";
+        }
         stopTimer();
         elapsedTime = 0;
-        resultElement.style.fontSize = "40px";
-        resultElement.style.color = "black";
         timerElement.textContent = "00:00";
-        resultElement.textContent = "Result";
+        resultElement.textContent = "";
         gameOver = false;
         generateGrid();
     });
 
+    // Easy
+    const easyButton = document.getElementById("easy");
+    easyButton.addEventListener("click", function() {
+        stopTimer();
+        elapsedTime = 0;
+        timerElement.textContent = "00:00";
+        resultElement.textContent = "";
+        gameOver = false;
+        numWalls = 15;
+        document.getElementById("smokescreen").style.visibility = "hidden";
+        generateGrid();
+    });
+
+    // Normal
+    const normalButton = document.getElementById("normal");
+    normalButton.addEventListener("click", function() {
+        stopTimer();
+        elapsedTime = 0;
+        timerElement.textContent = "00:00";
+        resultElement.textContent = "";
+        gameOver = false;
+        numWalls = 20;
+        document.getElementById("smokescreen").style.visibility = "hidden";
+        generateGrid();
+    });
+
+    // Hard
+    const hardButton = document.getElementById("hard");
+    hardButton.addEventListener("click", function() {
+        stopTimer();
+        elapsedTime = 0;
+        timerElement.textContent = "00:00";
+        resultElement.textContent = "";
+        gameOver = false;
+        numWalls = 25;
+        document.getElementById("smokescreen").style.visibility = "visible";
+        generateGrid();
+
+    });
 });
 
 
