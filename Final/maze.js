@@ -102,6 +102,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     result = "Slow Escape";
                 }
                 resultElement.textContent = result;
+                resultElement.classList.add("pop");
+
+                setTimeout(function() {
+                    resultElement.classList.remove("pop");
+                }, 1000);
             }
         }
         if(numWalls == 25){
