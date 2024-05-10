@@ -1,40 +1,40 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const gridContainer = document.getElementById("grid-container");
-    const timerElement = document.getElementById("timer");
-    const resultElement = document.getElementById("result");
-    const gridSize = 10;
-    let numWalls = 15;
-    let timerInterval;
-    let elapsedTime = 0;
-    let timerRunning = false;
-    let gameOver = false;
+    const grid_container = document.getElementById("grid-container");
+    const timer_element = document.getElementById("timer");
+    const result_element = document.getElementById("result");
+    const grid_size = 10;
+    let num_walls = 15;
+    let timer_interval;
+    let elapsed_time = 0;
+    let timer_running = false;
+    let game_end = false;
     let result;
 
     function startTimer() {
-        timerRunning = true;
-        timerInterval = setInterval(function() {
-            elapsedTime++;
-            const minutes = Math.floor(elapsedTime / 60).toString().padStart(2, '0');
-            const seconds = (elapsedTime % 60).toString().padStart(2, '0');
-            timerElement.textContent = `${minutes}:${seconds}`;
+        timer_running = true;
+        timer_interval = setInterval(function() {
+            elapsed_time++;
+            const minutes = Math.floor(elapsed_time / 60).toString().padStart(2, '0');
+            const seconds = (elapsed_time % 60).toString().padStart(2, '0');
+            timer_element.textContent = `${minutes}:${seconds}`;
         }, 1000);
     }
 
     function stopTimer() {
-        clearInterval(timerInterval);
-        timerRunning = false;
+        clearInterval(timer_interval);
+        timer_running = false;
     }
 
     // Function to generate the grid
     function generateGrid() {
         // TO clear the grid
-        gridContainer.innerHTML = "";
+        grid_container.innerHTML = "";
 
         // Create the grid
-        for (let i = 0; i < gridSize * gridSize; i++) {
+        for (let i = 0; i < grid_size * grid_size; i++) {
             const cell = document.createElement("div");
             cell.classList.add("dot");
-            gridContainer.appendChild(cell);
+            grid_container.appendChild(cell);
         }
 
         // Add player and exit
@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Generate walls
         const wallIndices = new Set();
-        while (wallIndices.size < numWalls) {
-            const randomIndex = Math.floor(Math.random() * (gridSize * gridSize));
+        while (wallIndices.size < num_walls) {
+            const randomIndex = Math.floor(Math.random() * (grid_size * grid_size));
             if (randomIndex !== 0 && randomIndex !== dots.length - 1) {
                 wallIndices.add(randomIndex);
                 dots[randomIndex].classList.add("wall");
@@ -58,58 +58,58 @@ document.addEventListener("DOMContentLoaded", function() {
     // Move player
     document.addEventListener("keydown", function(event) {
         // Stop movement if the game is over
-        if (gameOver) return;
+        if (game_end) return;
 
         let new_position;
-        const player_position = Array.from(gridContainer.children).findIndex(dot => dot.classList.contains("player"));
+        const player_position = Array.from(grid_container.children).findIndex(dot => dot.classList.contains("player"));
 
-        if (!timerRunning) {
+        if (!timer_running) {
             startTimer();
         }
 
         switch (event.key) {
             case "ArrowUp":
-                new_position = player_position - gridSize;
+                new_position = player_position - grid_size;
                 break;
             case "ArrowDown":
-                new_position = player_position + gridSize;
+                new_position = player_position + grid_size;
                 break;
             case "ArrowLeft":
-                new_position = player_position % gridSize === 0 ? player_position : player_position - 1;
+                new_position = player_position % grid_size === 0 ? player_position : player_position - 1;
                 break;
             case "ArrowRight":
-                new_position = (player_position + 1) % gridSize === 0 ? player_position : player_position + 1;
+                new_position = (player_position + 1) % grid_size === 0 ? player_position : player_position + 1;
                 break;
             default:
                 return;
         }
 
-        if (gridContainer.children[new_position] && !gridContainer.children[new_position].classList.contains("wall")) {
-            gridContainer.children[player_position].classList.remove("player");
-            gridContainer.children[new_position].classList.add("player");
+        if (grid_container.children[new_position] && !grid_container.children[new_position].classList.contains("wall")) {
+            grid_container.children[player_position].classList.remove("player");
+            grid_container.children[new_position].classList.add("player");
 
-            if (gridContainer.children[new_position].classList.contains("exit")) {
+            if (grid_container.children[new_position].classList.contains("exit")) {
                 stopTimer();
-                gridContainer.children[new_position].style.backgroundColor = 'orange';
-                gameOver = true;
-                if (elapsedTime <= 2) {
+                grid_container.children[new_position].style.backgroundColor = 'orange';
+                game_end = true;
+                if (elapsed_time <= 2) {
                     result = "Fast Escape";
                 } 
-                else if (elapsedTime < 5) {
+                else if (elapsed_time < 5) {
                     result = "Steady Escape";
                 } 
                 else {
                     result = "Slow Escape";
                 }
-                resultElement.textContent = result;
-                resultElement.classList.add("pop");
+                result_element.textContent = result;
+                result_element.classList.add("pop");
 
                 setTimeout(function() {
-                    resultElement.classList.remove("pop");
+                    result_element.classList.remove("pop");
                 }, 1000);
             }
         }
-        if(numWalls == 25){
+        if(num_walls == 25){
             document.getElementById("smokescreen").style.visibility = "hidden";
         }
     });
@@ -126,14 +126,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // Reset button
     const resetButton = document.getElementById("reset");
     resetButton.addEventListener("click", function() {
-        if(numWalls == 25){
+        if(num_walls == 25){
             document.getElementById("smokescreen").style.visibility = "visible";
         }
         stopTimer();
-        elapsedTime = 0;
-        timerElement.textContent = "00:00";
-        resultElement.textContent = "";
-        gameOver = false;
+        elapsed_time = 0;
+        timer_element.textContent = "00:00";
+        result_element.textContent = "";
+        game_end = false;
         generateGrid();
     });
 
@@ -141,11 +141,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const easyButton = document.getElementById("easy");
     easyButton.addEventListener("click", function() {
         stopTimer();
-        elapsedTime = 0;
-        timerElement.textContent = "00:00";
-        resultElement.textContent = "";
-        gameOver = false;
-        numWalls = 15;
+        elapsed_time = 0;
+        timer_element.textContent = "00:00";
+        result_element.textContent = "";
+        game_end = false;
+        num_walls = 15;
         document.getElementById("smokescreen").style.visibility = "hidden";
         generateGrid();
     });
@@ -154,11 +154,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const normalButton = document.getElementById("normal");
     normalButton.addEventListener("click", function() {
         stopTimer();
-        elapsedTime = 0;
-        timerElement.textContent = "00:00";
-        resultElement.textContent = "";
-        gameOver = false;
-        numWalls = 20;
+        elapsed_time = 0;
+        timer_element.textContent = "00:00";
+        result_element.textContent = "";
+        game_end = false;
+        num_walls = 20;
         document.getElementById("smokescreen").style.visibility = "hidden";
         generateGrid();
     });
@@ -167,11 +167,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const hardButton = document.getElementById("hard");
     hardButton.addEventListener("click", function() {
         stopTimer();
-        elapsedTime = 0;
-        timerElement.textContent = "00:00";
-        resultElement.textContent = "";
-        gameOver = false;
-        numWalls = 25;
+        elapsed_time = 0;
+        timer_element.textContent = "00:00";
+        result_element.textContent = "";
+        game_end = false;
+        num_walls = 25;
         document.getElementById("smokescreen").style.visibility = "visible";
         generateGrid();
 
