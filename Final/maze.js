@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const hardButton = document.getElementById("hard");
     var closeButton = document.querySelector(".closeButton");
     var close_instructions = document.getElementById("close_instructions");
+    var dropdownContent = document.getElementById("dropdown-content");
     const grid_size = 10;
     let num_walls = 15;
     let timer_interval;
@@ -73,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function() {
         return path;
     }
 
-    // Function to generate the grid
     function generateGrid() {
         // TO clear the grid
         grid_container.innerHTML = "";
@@ -183,15 +183,24 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    document.getElementById("hamburger").addEventListener("click", function() {
-        var dropdownContent = document.getElementById("dropdown-content");
+    document.getElementById("hamburger").addEventListener("click", function(event) {
         if (dropdownContent.style.display === "block") {
             dropdownContent.style.display = "none";
         } 
         else {
             dropdownContent.style.display = "block";
         }
+        // Prevents the document click event when hamburger is clicked
+        event.stopPropagation();
     });
+    
+    document.addEventListener("click", function() {
+        var dropdownContent = document.getElementById("dropdown-content");
+        if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+        }
+    });
+    
     
     // Reset button
     const resetButton = document.getElementById("reset");
@@ -207,7 +216,6 @@ document.addEventListener("DOMContentLoaded", function() {
         generateGrid();
     });
 
-    var dropdownContent = document.getElementById("dropdown-content");
     // Easy
     easyButton.addEventListener("click", function() {
         stopTimer();
@@ -217,7 +225,6 @@ document.addEventListener("DOMContentLoaded", function() {
         game_end = false;
         num_walls = 15;
         document.getElementById("smokescreen").style.visibility = "hidden";
-        dropdownContent.style.display = "none";
         generateGrid();
     });
 
@@ -230,7 +237,6 @@ document.addEventListener("DOMContentLoaded", function() {
         game_end = false;
         num_walls = 20;
         document.getElementById("smokescreen").style.visibility = "hidden";
-        dropdownContent.style.display = "none";
         generateGrid();
     });
 
@@ -243,7 +249,6 @@ document.addEventListener("DOMContentLoaded", function() {
         game_end = false;
         num_walls = 25;
         document.getElementById("smokescreen").style.visibility = "visible";
-        dropdownContent.style.display = "none";
         generateGrid();
 
     });
