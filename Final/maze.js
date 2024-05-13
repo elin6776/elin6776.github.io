@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function generatePath(dots) {
         let path = [0];
         let current = 0;
-    
+
         while (current < dots.length - 1) {
             let next;
             // Randomly choose to move right or down
@@ -63,14 +63,13 @@ document.addEventListener("DOMContentLoaded", function() {
             else {
                 next = Math.random() < 0.5 ? current + 1 : current + grid_size;
             }
-            
             // Prevents loop 
             if (!path.includes(next)) {
                 path.push(next);
                 current = next;
             }
         }
-    
+
         return path;
     }
 
@@ -168,16 +167,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 stopTimer();
                 grid_container.children[new_position].style.backgroundColor = 'orange';
                 game_end = true;
-
                 result = resultTime(elapsed_time);
                 result_element.textContent = result;
                 result_element.classList.add("pop");
-
                 setTimeout(function() {
                     result_element.classList.remove("pop");
                 }, 1000);
             }
         }
+        
         if(num_walls == 25){
             document.getElementById("smokescreen").style.visibility = "hidden";
         }
