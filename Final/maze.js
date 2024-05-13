@@ -2,6 +2,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const grid_container = document.getElementById("grid-container");
     const timer_element = document.getElementById("timer");
     const result_element = document.getElementById("result");
+    const easyButton = document.getElementById("easy");
+    const normalButton = document.getElementById("normal");
+    const hardButton = document.getElementById("hard");
+    var closeButton = document.querySelector(".closeButton");
+    var close_instructions = document.getElementById("close_instructions");
     const grid_size = 10;
     let num_walls = 15;
     let timer_interval;
@@ -9,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let timer_running = false;
     let game_end = false;
     let result;
-
+    
     function startTimer() {
         timer_running = true;
         timer_interval = setInterval(function() {
@@ -23,6 +28,49 @@ document.addEventListener("DOMContentLoaded", function() {
     function stopTimer() {
         clearInterval(timer_interval);
         timer_running = false;
+    }
+
+    function resultTime(elapsed_time){
+        let result;
+        if (elapsed_time <= 2) {
+            result = "Fast Escape";
+        } 
+        else if (elapsed_time < 5) {
+            result = "Steady Escape";
+        } 
+        else {
+            result = "Slow Escape";
+        }
+        return result;
+    }
+
+    function generatePath(dots) {
+        let path = [0];
+        let current = 0;
+    
+        while (current < dots.length - 1) {
+            let next;
+            // Randomly choose to move right or down
+            if (current % grid_size === grid_size - 1) {
+                // Right edge, can only move down
+                next = current + grid_size;
+            } 
+            else if (current + grid_size >= dots.length) {
+                // Bottom edge, can only move right
+                next = current + 1;
+            } 
+            else {
+                next = Math.random() < 0.5 ? current + 1 : current + grid_size;
+            }
+            
+            // Prevents loop 
+            if (!path.includes(next)) {
+                path.push(next);
+                current = next;
+            }
+        }
+    
+        return path;
     }
 
     // Function to generate the grid
@@ -42,19 +90,47 @@ document.addEventListener("DOMContentLoaded", function() {
         dots[0].classList.add("player");
         dots[dots.length - 1].classList.add("exit");
 
+        // Generate a guaranteed path
+        let path = generatePath(dots);
+        for (let index of path) {
+            dots[index].classList.add("path");
+        }
+
         // Generate walls
         const wallIndices = new Set();
         while (wallIndices.size < num_walls) {
             const randomIndex = Math.floor(Math.random() * (grid_size * grid_size));
-            if (randomIndex !== 0 && randomIndex !== dots.length - 1) {
+            // Check if it's the start, end, or on the path
+            if (randomIndex !== 0 && randomIndex !== dots.length - 1 && !path.includes(randomIndex)) {
                 wallIndices.add(randomIndex);
                 dots[randomIndex].classList.add("wall");
             }
         }
+        
+        if (num_walls == 15) {
+            easyButton.style.backgroundColor = "grey";
+            normalButton.style.backgroundColor = ""; 
+            hardButton.style.backgroundColor = ""; 
+        } 
+        else if (num_walls == 20) {
+            normalButton.style.backgroundColor = "grey";
+            easyButton.style.backgroundColor = "";
+            hardButton.style.backgroundColor = ""; 
+        } 
+        else if (num_walls == 25) {
+            hardButton.style.backgroundColor = "grey";
+            easyButton.style.backgroundColor = ""; 
+            normalButton.style.backgroundColor = "";
+        }
+        
     }
 
     generateGrid();
 
+    closeButton.addEventListener("click", function() {
+        close_instructions.style.display = "none";
+    });
+    
     // Move player
     document.addEventListener("keydown", function(event) {
         // Stop movement if the game is over
@@ -92,15 +168,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 stopTimer();
                 grid_container.children[new_position].style.backgroundColor = 'orange';
                 game_end = true;
-                if (elapsed_time <= 2) {
-                    result = "Fast Escape";
-                } 
-                else if (elapsed_time < 5) {
-                    result = "Steady Escape";
-                } 
-                else {
-                    result = "Slow Escape";
-                }
+
+                result = resultTime(elapsed_time);
                 result_element.textContent = result;
                 result_element.classList.add("pop");
 
@@ -118,7 +187,8 @@ document.addEventListener("DOMContentLoaded", function() {
         var dropdownContent = document.getElementById("dropdown-content");
         if (dropdownContent.style.display === "block") {
             dropdownContent.style.display = "none";
-        } else {
+        } 
+        else {
             dropdownContent.style.display = "block";
         }
     });
@@ -137,8 +207,8 @@ document.addEventListener("DOMContentLoaded", function() {
         generateGrid();
     });
 
+    var dropdownContent = document.getElementById("dropdown-content");
     // Easy
-    const easyButton = document.getElementById("easy");
     easyButton.addEventListener("click", function() {
         stopTimer();
         elapsed_time = 0;
@@ -147,11 +217,11 @@ document.addEventListener("DOMContentLoaded", function() {
         game_end = false;
         num_walls = 15;
         document.getElementById("smokescreen").style.visibility = "hidden";
+        dropdownContent.style.display = "none";
         generateGrid();
     });
 
     // Normal
-    const normalButton = document.getElementById("normal");
     normalButton.addEventListener("click", function() {
         stopTimer();
         elapsed_time = 0;
@@ -160,11 +230,11 @@ document.addEventListener("DOMContentLoaded", function() {
         game_end = false;
         num_walls = 20;
         document.getElementById("smokescreen").style.visibility = "hidden";
+        dropdownContent.style.display = "none";
         generateGrid();
     });
 
     // Hard
-    const hardButton = document.getElementById("hard");
     hardButton.addEventListener("click", function() {
         stopTimer();
         elapsed_time = 0;
@@ -173,6 +243,7 @@ document.addEventListener("DOMContentLoaded", function() {
         game_end = false;
         num_walls = 25;
         document.getElementById("smokescreen").style.visibility = "visible";
+        dropdownContent.style.display = "none";
         generateGrid();
 
     });

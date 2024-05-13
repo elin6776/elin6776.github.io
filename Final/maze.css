@@ -126,15 +126,42 @@ img {
 }
 
 p {
-    padding-top: 2%;
-    padding-left: 1%;
-    grid-column: 2 / span 3;
+    padding-top: 3%;
+    grid-column: 2 / span 2;
     grid-row: 7 / span 1;
     margin: 0px;
     font-size: 20px;
     font-family: "Sedan SC", serif;
+    text-align: center;
 }
 
+.p2 {
+    border: 2px solid black;
+    border-radius: 20px;
+    padding-top: 15px;
+    padding-left: 40px;
+    grid-column: 12 / span 3;
+    grid-row: 10 / span 3;
+    margin: 0px;
+    font-size: 20px;
+    font-family: "Sedan SC", serif;
+    line-height: 1.5;
+    position: relative;
+    text-align: left;
+}
+
+.closeButton {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #484848;
+}
+
+.closeButton:hover {
+    color: black;
+}
 #timer {
     grid-column: 12 / span 1;
     grid-row: 6 / span 1;
