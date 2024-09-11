@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f6f3f3;
+    text-align: center;
+    margin: 0px;
+    overflow-x: hidden;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.exo-2-font {
+  font-family: "Exo 2", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 100px;
+  font-style: normal;
+}
+
+.grid hr {
+    grid-column: 2 / 18;
+    border: 0;
+    border-top: 1px solid rgb(59, 42, 59);
+    margin: 0;
+    max-width: 100%;
+}
+
+hr{
+    max-width: 80%;
+    margin: 0 auto;
+    color: rgb(59, 42, 59);
+    border-top: 1px solid rgb(59, 42, 59);
+}
+
+h1 {
+    color: #140f10;
+    text-align: left; 
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+    font-size: 40px;
+}
+
+h2 {
+    color: white;
+    font-size: 25px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(18, 1fr);
+    height: 100vh;
+    width: 100vw;
+}
+
+.bar-container {
+    grid-column: 2 / 18;
+    grid-row: 1 / 3;
+    position: relative;
+}
+
+.intro-container {
+    grid-column: 2 / 18;
+    grid-row: 4 / 6; 
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.main-container {
+    grid-column: 1 / 19;
+    grid-row: 6 / 19;
+    background-color: #a47c86;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty {
+    height: 100px;
+    background-color: #f6f3f3;
+}
+
+#theLinks {
+    position: absolute;
+    top: 25%;
+    right: 0;
+    background-color: white;
+    border: 1px solid rgb(59, 42, 59);
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+#theLinks a {
+    display: block;
+    text-decoration: none;
+    color: #644c51;
+    margin: 10px 5px;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+#theLinks a:hover {
+    color: rgb(255, 255, 255);
+    background-color: #776065;
+}
+
+
+form {
+    width: 55%;
+    margin: auto;
+    text-align: center;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+form p{
+    color: white;
+}
+
+.inputFields {
+    display: block;
+    margin: auto;
+    border-radius: 8px;
+    border: solid transparent;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 65%; 
+    height: 40px;
+    font-size: 16px;
+}
+
+textarea {
+    width: 65%; 
+    height: 150px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    margin-top: 15px;
+    background-color: #b9cba3;
+    border-radius: 8px;
+    border-color: transparent;
+    width: 140px;
+    height: 45px; 
+    font-size: 18px; 
+}
+
+button[type="submit"]:hover {
+    background-color: #84b898;
+    color:#ffffff;
+}
