@@ -78,11 +78,6 @@ h2 {
     align-items: center;
 }
 
-.empty {
-    height: 100px;
-    background-color: #f6f3f3;
-}
-
 #theLinks {
     position: absolute;
     top: 25%;

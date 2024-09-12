@@ -99,12 +99,7 @@ img {
     align-items: center;
     overflow-x: auto;
 }
-
-
-.empty {
-    height: 100px;
-    background-color: #f6f3f3;
-}
+  
 
 #theLinks {
     position: absolute;
