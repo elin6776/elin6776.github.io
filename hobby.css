@@ -63,7 +63,7 @@ img {
 .grid {
     display: grid;
     grid-template-columns: repeat(18, 1fr);
-    grid-template-rows: repeat(18, 1fr);
+    grid-auto-rows: minmax(50px, auto); /* Set a minimum height */
     height: 100vh;
     width: 100vw;
 }
@@ -81,7 +81,7 @@ img {
 
 .hobby-container {
     grid-column: 1 / 19;
-    grid-row: 6 / 19;
+    grid-row: 6 / 16;
     display: flex;
     justify-content: center;
     align-items: center;
