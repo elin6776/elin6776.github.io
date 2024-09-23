@@ -15,11 +15,12 @@
             <div class="bar-container">
                 <br>
                 <h1>Hello</h1> 
+                <button class="hamburger" aria-label="Toggle menu">☰</button>
                 <div id="theLinks">
                     <a href="index.html">Home</a>
                     <a href="hobby.html">Hobbies</a>
                     <a href="contact.html">Contact Me</a>
-                </div>  
+                </div>
             </div>
 
 
@@ -32,7 +33,9 @@
                 <div class="content-container">
                     <h2>About Me</h2>
                     <br>
-                    <p> I'm currently studying computer science at Hunter College
+                    <p> 
+                        
+                        I'm currently studying computer science at Hunter College
                         where I’m developing my skills in programming, systems design, and software development. I'm excited to learn more about web development in this class.
                         <br><br>
                         Beyond my studies, I like to try new things and explore different creative endeavors whether that be sports or a more relaxing activity.
@@ -43,5 +46,13 @@
             </div>
         </div>
 
+        <script>
+            const hamburger = document.querySelector('.hamburger');
+            const links = document.getElementById('theLinks');
+        
+            hamburger.addEventListener('click', () => {
+                links.classList.toggle('active'); // Toggle the active class
+            });
+        </script>
     </body>
 </html>
