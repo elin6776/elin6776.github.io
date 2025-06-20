@@ -268,11 +268,32 @@ body.dark-mode .box img {
     .box {
         width: 80%;
     }
-    .empty {
-      height: 250px;
-    }
 }
 
 .empty {
-  height: 150px;
+  height: 5%;
+}
+
+.contact-me {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #f7f7f7;
+  color: #333;
+  font-family: 'Lexend', sans-serif;
+  border-top: 1px solid #ccc;
+}
+
+.contact-me h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.contact-me a {
+  color: #6a9ae2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-me a:hover {
+  text-decoration: underline;
 }

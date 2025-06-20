@@ -2,17 +2,21 @@
   {
     "title": "HabitFlow",
     "icon": "Images/habitflow.png",
-    "description":"This is a productivity app named HabitFlow. It aims to improve user's daily routine and help them stay consistent with your goals. It offering engaging challenges and fosters social interaction which makes habit-building more dynamic and motivating",
+    "description":"HabitFlow is a productivity app designed to enhance daily routines and help users stay consistent with their goals. It offers engaging challenges and encourages social interaction, making habit-building more dynamic and motivating.",
     "page": "projects/habitflow.html"
   },
   {
     "title": "Travel Memories",
     "icon": "Images/travelmemories.png",
-    "description":"This is a website where people can create a envolope and view their travel memories.",
+    "description":"A playful digital postbox where users can create envelopes to store and revisit their travel memories. Add trip details, tags, and manage entries—all in one creative space.",
     "page": "projects/travelmemories.html"
   },
   {
     "title": "Gravitational Pull",
+    "icon": ""
+  },
+  {
+    "title": "Automatic Back Up",
     "icon": ""
   }
 ] 

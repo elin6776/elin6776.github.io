@@ -82,8 +82,19 @@ window.addEventListener('load', () => {
           box.appendChild(desc);
         }
 
+        let isClicked = false;
+
+        box.addEventListener("click", () => {
+          isClicked = true;
+          setTimeout(() => {
+            isClicked = false;
+          }, 200); 
+        });
+
         // Fade other boxes
         box.addEventListener("mouseenter", () => {
+          if (isClicked) return; 
+
           gsap.to(box, { y: -10, duration: 0.2, ease: "bounce.out" });
 
           const allBoxes = container.querySelectorAll(".box");
@@ -98,14 +109,15 @@ window.addEventListener('load', () => {
           });
         });
 
-        box.addEventListener("mouseleave", () => {
-          gsap.to(box, { y: 0, duration: 0.2, ease: "power1.out" });
+box.addEventListener("mouseleave", () => {
+  gsap.to(box, { y: 0, duration: 0.2, ease: "power1.out" });
 
-          const allBoxes = container.querySelectorAll(".box");
-          allBoxes.forEach(otherBox => {
-            otherBox.classList.remove("faded");
-          });
-        });
+  const allBoxes = container.querySelectorAll(".box");
+  allBoxes.forEach(otherBox => {
+    otherBox.classList.remove("faded");
+  });
+});
+
 
         container.appendChild(box);
       });
