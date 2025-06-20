@@ -1,13 +1,13 @@
 [
   {
     "title": "HabitFlow",
-    "icon": "images/habitflow.png",
+    "icon": "Images/habitflow.png",
     "description":"This is a productivity app named HabitFlow. It aims to improve user's daily routine and help them stay consistent with your goals. It offering engaging challenges and fosters social interaction which makes habit-building more dynamic and motivating",
     "page": "projects/habitflow.html"
   },
   {
     "title": "Travel Memories",
-    "icon": "images/travelmemories.png",
+    "icon": "Images/travelmemories.png",
     "description":"This is a website where people can create a envolope and view their travel memories.",
     "page": "projects/travelmemories.html"
   },

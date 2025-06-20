@@ -69,7 +69,7 @@ window.addEventListener('load', () => {
           const desc = document.createElement("p");
           desc.classList.add("box-description");
 
-          const isSmallScreen = window.innerWidth < 800;
+          const isSmallScreen = window.innerWidth < 1200;
 
           if (isSmallScreen) {
             const words = project.description.split(" ");
@@ -124,7 +124,7 @@ window.addEventListener('load', () => {
       const char = text[index] === '\n' ? '<br>' : text[index];
       element.innerHTML += char;
       index++;
-      setTimeout(type, 75); // Typing speed
+      setTimeout(type, 75); 
     } else {
       element.classList.add('done-typing');
     }
@@ -150,7 +150,7 @@ window.addEventListener('load', () => {
     githubIcon.src = 'https://cdn-icons-png.flaticon.com/512/733/733609.png'; 
   }
 
-  // Toggle event listener to update theme and save preference
+  // Toggle event listener to update theme 
   toggleButton.addEventListener('change', () => {
     const isDark = document.body.classList.toggle('dark-mode');
 
