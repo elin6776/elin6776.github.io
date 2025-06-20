@@ -1,0 +1,144 @@
+:root {
+  --text: #061013;
+  --background: #f2f9fb;
+  --primary: #42a8c1;
+  --secondary: #da8fa0;
+  --accent: #d2b275;
+  --box: white;
+}
+
+.dark-mode {
+  --text: #ecf6f9;
+  --background: black;
+  --primary: #3da3bd;
+  --secondary: #6f2536;
+  --accent: #8b6a2d;
+  --box: #0e2025;
+}
+
+.lexend {
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lexend", sans-serif;
+}
+
+
+body {
+  background-color: var(--background);
+}
+
+.nav-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 130px auto 20px auto; 
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;   
+  align-items: center;      
+  justify-content: flex-end;
+  padding-bottom: 10px;
+}
+
+.nav-container h1 {
+  margin: 0;
+  font-size: clamp(30px, 5vw, 40px); 
+  color: var(--text);
+}
+
+.nav-container hr {
+  width: 50%;            
+  border: none;
+  border-top: 1px solid var(--secondary);
+  margin-top: 15px;  
+  margin-bottom: 25px;  
+}
+
+img {
+  display: block;
+  width: 80%;            
+  max-width: 700px;      
+  height: auto;         
+  margin:20px auto;
+  border-radius: 25px;
+  border: 40px solid var(--box);
+  box-shadow: 2px 4px 12px 2px var(--secondary);
+}
+
+body.dark-mode img {
+  filter: brightness(0.85) saturate(1);
+  box-shadow: 0px 0px 20px 8px var(--secondary);
+}
+
+img:hover {
+  transform: scale(1.01);
+  transition: transform 0.5s ease;
+}
+
+p {
+  text-align: center;
+  margin: 0 auto;
+  font-weight: 100;
+  font-size: 18px;
+  color: var(--text);
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+h1 {
+  max-width: 50%;
+  margin: 0 auto;
+  font-weight: 200;
+  font-size: 26px;
+  color: var(--text);
+  padding-bottom: 20px;
+  text-decoration: underline;
+}
+
+h2 {
+  max-width: 50%;
+  margin: 0 auto;
+  font-weight: 100;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--text)
+}
+
+li {
+  margin-left: 5%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  
+}
+
+button {
+  width: 150px;
+  padding: 15px 20px;
+  border-radius: 25px;
+  border: 0px solid;
+  font-size: 20px;
+  background-color: var(--box);
+  color: var(--text);
+  box-shadow: 2px 4px 12px 2px var(--secondary);
+}
+
+button:hover {
+  transform: scale(1.02);
+  transition: transform 0.5s ease;
+}
+.empty {
+  height: 150px;
+}

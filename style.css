@@ -9,11 +9,11 @@
 
 .dark-mode {
   --text: #ecf6f9;
-  --background: #040a0c;
+  --background: black;
   --primary: #3da3bd;
   --secondary: #6f2536;
   --accent: #8b6a2d;
-  --box: #000405;
+  --box: #0e2025;
 }
 
 .lexend {
@@ -79,14 +79,12 @@ body {
   height: 28px;
 }
 
-/* Hide default checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* Slider background */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -99,7 +97,6 @@ body {
   border-radius: 34px;
 }
 
-/* Slider knob */
 .slider::before {
   position: absolute;
   content: "";
@@ -112,7 +109,6 @@ body {
   border-radius: 50%;
 }
 
-/* When checkbox is checked, move the knob */
 .switch input:checked + .slider {
   background-color: var(--primary);
 }
@@ -120,6 +116,7 @@ body {
 .switch input:checked + .slider::before {
   transform: translateX(22px);
 }
+/* End of switch css */
 
 /* Intro css */
 .intro-container {
@@ -271,4 +268,11 @@ body.dark-mode .box img {
     .box {
         width: 60%;
     }
+    .empty {
+      height: 250px;
+    }
+}
+
+.empty {
+  height: 150px;
 }
