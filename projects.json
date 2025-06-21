@@ -10,13 +10,5 @@
     "icon": "Images/travelmemories.png",
     "description":"A playful digital postbox where users can create envelopes to store and revisit their travel memories. Add trip details, tags, and manage entries—all in one creative space.",
     "page": "projects/travelmemories.html"
-  },
-  {
-    "title": "Gravitational Pull",
-    "icon": ""
-  },
-  {
-    "title": "Automatic Back Up",
-    "icon": ""
   }
 ] 

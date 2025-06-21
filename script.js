@@ -81,20 +81,9 @@ window.addEventListener('load', () => {
 
           box.appendChild(desc);
         }
-
-        let isClicked = false;
-
-        box.addEventListener("click", () => {
-          isClicked = true;
-          setTimeout(() => {
-            isClicked = false;
-          }, 200); 
-        });
-
+        
         // Fade other boxes
         box.addEventListener("mouseenter", () => {
-          if (isClicked) return; 
-
           gsap.to(box, { y: -10, duration: 0.2, ease: "bounce.out" });
 
           const allBoxes = container.querySelectorAll(".box");
@@ -109,15 +98,14 @@ window.addEventListener('load', () => {
           });
         });
 
-box.addEventListener("mouseleave", () => {
-  gsap.to(box, { y: 0, duration: 0.2, ease: "power1.out" });
+        box.addEventListener("mouseleave", () => {
+          gsap.to(box, { y: 0, duration: 0.2, ease: "power1.out" });
 
-  const allBoxes = container.querySelectorAll(".box");
-  allBoxes.forEach(otherBox => {
-    otherBox.classList.remove("faded");
-  });
-});
-
+          const allBoxes = container.querySelectorAll(".box");
+          allBoxes.forEach(otherBox => {
+            otherBox.classList.remove("faded");
+          });
+        });
 
         container.appendChild(box);
       });
@@ -136,13 +124,19 @@ box.addEventListener("mouseleave", () => {
       const char = text[index] === '\n' ? '<br>' : text[index];
       element.innerHTML += char;
       index++;
-      setTimeout(type, 75); 
+      setTimeout(type, 75);
     } else {
       element.classList.add('done-typing');
+      localStorage.setItem("typingComplete", "true");
     }
   }
 
-  type();
+  if (localStorage.getItem("typingComplete") === "true") {
+    element.innerHTML = text.replace(/\n/g, "<br>");
+    element.classList.add('done-typing');
+  } else {
+    type();
+  }
 
   // Toggle Theme with localStorage
   const toggleButton = document.getElementById('theme-toggle');
@@ -176,4 +170,10 @@ box.addEventListener("mouseleave", () => {
       localStorage.setItem('theme', 'light');
     }
   });
+});
+
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted) {
+    window.location.reload();
+  }
 });
