@@ -10,5 +10,11 @@
     "icon": "Images/travelmemories.png",
     "description":"A playful digital postbox where users can create envelopes to store and revisit their travel memories. Add trip details, tags, and manage entries—all in one creative space.",
     "page": "projects/travelmemories.html"
+  },
+  {
+    "title": "Automatic Back Up",
+    "icon": "Images/autobackup.png",
+    "description": "A Python desktop application that offers a user-friendly interface for selecting multiple source folders and a backup destination, performing timestamped local backups with change detection, optional Google Drive uploads, and real-time status updates with last backup logs.",
+    "page": "projects/autobackup.html"
   }
 ] 

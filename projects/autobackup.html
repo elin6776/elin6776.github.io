@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang = "en-US">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="project.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+
+        <title>Automatic Back Up</title>
+	</head>
+
+    <body>
+ 
+            <div class="nav-container">
+                <h1>Automatic Back Up</h1> 
+                <hr>
+            </div>
+
+            <img src="../Images/autobackup.png" alt="Automatic Back Up" />
+            <br><br>
+
+            <h1>
+                Description:
+            </h1>
+            <h2>
+                This Python desktop application provides a user-friendly interface built with Tkinter for selecting multiple source folders and a destination folder to perform automated local backups. 
+                It detects changes in source folders and creates timestamped backup copies. 
+                <br><br>
+                The application supports optional uploads to Google Drive using PyDrive, maintains a log of the last backup time, and allows users to configure settings and schedule backups. 
+                It uses Windows Task Scheduler to set scheduled times and enable automatic backups without user intervention.
+            </h2>
+            <br>
+
+            <h1>
+                Framework:
+            </h1>
+            <h2>
+                <li>Tkinter</li>
+                <li>PyDrive</li>
+                <li>Standard Libraries – os, shutil, datetime, threading, etc.</li>
+            </h2>
+            <br>
+
+
+            <h1>
+                Features:
+            </h1>
+            <h2>
+                <li>Users can select multiple source folders to back up simultaneously.</li>
+                <li>Only backs up files that have changed since the last backup to save space and time.</li>
+                <li>Creates organized backup folders with timestamps for easy tracking and versioning.</li>
+                <li>Upload local backups to Google Drive using PyDrive for cloud storage and redundancy.</li>
+                <li>Performs backups in a separate thread to keep the UI responsive during operations.</li>
+
+            </h2>
+            <br>
+
+            <h1>
+                Links:
+            </h1>
+            <h2>
+                <a href="https://github.com/elin6776/Automatic-Backup" target="_blank">GitHub Repo</a>
+            </h2>
+
+            <div class="button-container">
+                <a href="../index.html">
+                <button>Back</button>
+                </a>
+            </div>
+            <div class="empty"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+        <script src="load.js"></script>
+    </body>
+</html>
