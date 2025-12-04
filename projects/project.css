@@ -62,7 +62,7 @@ body {
   margin-bottom: 25px;  
 }
 
-img {
+img, video{
   display: block;
   width: 80%;            
   max-width: 700px;      
@@ -73,15 +73,21 @@ img {
   box-shadow: 2px 4px 12px 2px var(--secondary);
 }
 
+img.img2 {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: none;
+  box-shadow: none; 
+}
+
+
 body.dark-mode img {
   filter: brightness(0.85) saturate(1);
   box-shadow: 0px 0px 20px 8px var(--secondary);
 }
 
-img:hover {
-  transform: scale(1.01);
-  transition: transform 0.5s ease;
-}
 
 .demo {
   display: flex;
@@ -170,8 +176,6 @@ button:hover {
     padding-left: 10px;
   }
 }
-
-
 
 .empty {
   height: 150px;

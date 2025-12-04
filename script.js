@@ -38,6 +38,7 @@ window.addEventListener('load', () => {
 
           // Bounce for both box and img
           img.addEventListener("mouseenter", () => {
+            /*
             if (currentBouncingImg && currentBouncingImg !== img) {
               gsap.killTweensOf(currentBouncingImg);
               gsap.to(currentBouncingImg, { y: 0, duration: 0.1 });
@@ -54,7 +55,9 @@ window.addEventListener('load', () => {
                 gsap.to(img, { y: 0, duration: 0.2, ease: "power1.out" });
                 if (currentBouncingImg === img) currentBouncingImg = null; 
               }
+              
             });
+            */
           });
 
           img.addEventListener("mouseleave", () => {
@@ -114,62 +117,62 @@ window.addEventListener('load', () => {
       console.error('Error loading project data:', error);
     });
 
-  // Typewriter
-  const text = "Hi welcome to my website\nI'm happy you're here!";
-  const element = document.getElementById("typewriter");
-  let index = 0;
+    // Typewriter
+    const text = "Hi welcome to my website\nI'm happy you're here!";
+    const element = document.getElementById("typewriter");
+    let index = 0;
 
-  function type() {
-    if (index < text.length) {
-      const char = text[index] === '\n' ? '<br>' : text[index];
-      element.innerHTML += char;
-      index++;
-      setTimeout(type, 75);
-    } else {
-      element.classList.add('done-typing');
-      localStorage.setItem("typingComplete", "true");
+    function type() {
+      if (index < text.length) {
+        const char = text[index] === '\n' ? '<br>' : text[index];
+        element.innerHTML += char;
+        index++;
+        setTimeout(type, 75); 
+      } else {
+        localStorage.setItem("typingComplete", "true");
+      }
     }
-  }
 
-  if (localStorage.getItem("typingComplete") === "true") {
-    element.innerHTML = text.replace(/\n/g, "<br>");
-    element.classList.add('done-typing');
-  } else {
-    type();
-  }
+    if (localStorage.getItem("typingComplete") === "true") {
+      element.innerHTML = text.replace(/\n/g, "<br>");
+    } else if (!element.classList.contains('done-typing')) {
+      type();
+    }
 
-  // Toggle Theme with localStorage
-  const toggleButton = document.getElementById('theme-toggle');
-  const githubIcon = document.getElementById('github-icon');
+    /*
+    // Toggle Theme with localStorage
+    const toggleButton = document.getElementById('theme-toggle');
+    const githubIcon = document.getElementById('github-icon');
 
-  // Apply saved theme on load
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-    toggleButton.checked = true;
-    githubIcon.src = 'https://cdn-icons-png.flaticon.com/512/5968/5968866.png'; 
-    githubIcon.style.width = '36px';  
-    githubIcon.style.height = '36px';
-  } else {
-    document.body.classList.remove('dark-mode');
-    toggleButton.checked = false;
-    githubIcon.src = 'https://cdn-icons-png.flaticon.com/512/733/733609.png'; 
-  }
-
-  // Toggle event listener to update theme 
-  toggleButton.addEventListener('change', () => {
-    const isDark = document.body.classList.toggle('dark-mode');
-
-    if (isDark) {
+    // Apply saved theme on load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      toggleButton.checked = true;
       githubIcon.src = 'https://cdn-icons-png.flaticon.com/512/5968/5968866.png'; 
       githubIcon.style.width = '36px';  
       githubIcon.style.height = '36px';
-      localStorage.setItem('theme', 'dark');
     } else {
+      document.body.classList.remove('dark-mode');
+      toggleButton.checked = false;
       githubIcon.src = 'https://cdn-icons-png.flaticon.com/512/733/733609.png'; 
-      localStorage.setItem('theme', 'light');
     }
-  });
+
+    // Toggle event listener to update theme 
+    toggleButton.addEventListener('change', () => {
+      const isDark = document.body.classList.toggle('dark-mode');
+
+      if (isDark) {
+        githubIcon.src = 'https://cdn-icons-png.flaticon.com/512/5968/5968866.png'; 
+        githubIcon.style.width = '36px';  
+        githubIcon.style.height = '36px';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        githubIcon.src = 'https://cdn-icons-png.flaticon.com/512/733/733609.png'; 
+        localStorage.setItem('theme', 'light');
+      }
+    });
+    */
 });
 
 window.addEventListener("pageshow", function (event) {

@@ -8,7 +8,7 @@
   {
     "title": "Travel Memories",
     "icon": "Images/travelmemories.png",
-    "description":"A playful digital postbox where users can create envelopes to store and revisit their travel memories. Add trip details, tags, and manage entries—all in one creative space.",
+    "description":"A playful digital postbox where users can create envelopes to store and revisit their travel memories. Add trip details, tags, and manage entries",
     "page": "projects/travelmemories.html"
   },
   {
@@ -16,5 +16,17 @@
     "icon": "Images/autobackup.png",
     "description": "A Python desktop application that offers a user-friendly interface for selecting multiple source folders and a backup destination, performing timestamped local backups with change detection, optional Google Drive uploads, and real-time status updates with last backup logs.",
     "page": "projects/autobackup.html"
+  },
+  {
+    "title": "Gravitational Pull",
+    "icon": "Images/gravitational_pull.png",
+    "description":"An interactive educational website that illustrates the moon’s gravitational effect on Earth and how it influences tides.",
+    "page": "projects/gravitationalpull.html"
+  },
+  {
+    "title": "Happiness Index",
+    "icon": "Images/happy_index.png",
+    "description":"An interactive website exploring over 1,000 datasets to visualize the happiest and unhappiest countries from 2013–2023.",
+    "page": "projects/happyindex.html"
   }
 ] 
